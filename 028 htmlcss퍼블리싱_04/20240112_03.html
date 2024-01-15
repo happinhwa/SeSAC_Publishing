@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .wrap{display: flex; width: 600px; height: 40px; background-color: #666; margin-top: 50px;}
+       .wrap>div:nth-child(1){background-color: #b7c2fe;}
+       .wrap>div:nth-child(2){background-color: #b7fafe;}
+       .wrap>div:nth-child(3){background-color: #b7feb7;}
+        
+       /* 높이를 지정하지 않아도 display:flex이면 알아서 stretch되어서 부모요소의 높이만큼 들어감 */
+       .wrap1>div{width: 100px; }
+       /* flex-grow: 전체 크기에 비례한것.. 원래 너비에서 남는 여백을 계산하는것임!!*/
+       .wrap1>div:nth-child(1){flex-grow: 2;}/* 100 + ((600-(100*3)) * (2/(2+1+1))) = 100 + 150 */
+       .wrap1>div:nth-child(2){flex-grow: 1;}/* 100 + ((600-(100*3)) * (1/(2+1+1))) = 100 + 75 */
+       .wrap1>div:nth-child(3){flex-grow: 1;}/* 100 + ((600-(100*3)) * (2/(2+1+1))) = 100 + 75 */
+
+       .wrap2>div{width: 300px;}
+       .wrap2>div:nth-child(1){flex-shrink: 2;}/* 300 - (((300*3)-600) * (2/(2+1+1))) = 300 - 150 */
+       .wrap2>div:nth-child(2){flex-shrink: 1;}/* 300 - (((300*3)-600) * (2/(2+1+1))) = 300 - 75 */
+       .wrap2>div:nth-child(3){flex-shrink: 1;}/* 300 - (((300*3)-600) * (2/(2+1+1))) = 300 - 75 */
+
+       .wrap3>div{width: 400px;}
+       .wrap3>div:nth-child(1){flex-shrink: 3;}
+       .wrap3>div:nth-child(2){flex-shrink: 1;}
+       .wrap3>div:nth-child(3){flex-shrink: 1;}
+
+       .wrap4{width: 800px;}
+       .wrap4>div{width: 300px;}
+       .wrap4>div:nth-child(1){flex-shrink: 2;}
+       .wrap4>div:nth-child(2){flex-shrink: 2;}
+       .wrap4>div:nth-child(3){flex-shrink: 0;}
+       
+       .wrap5>div{flex-basis: 0; flex-grow :1;}
+       /* flex-basis의 값이 auto일 때, width, height 값보다 basis가 우선 */
+       /* flex-basis의 값이 auto가 아닐 때, basis가 width, height 값보다 우선 */
+
+       /* flex-basis:0 == 콘텐츠 크기를 아예 0을 만드는 것임
+       이후 flex-grow를 하면 그냥 그 비율대로 증가하는 것임!!!*/
+       .wrap5>div:nth-child(1){flex-grow: 2;} /* 600 * (2/(2+2+1)) = 240 */
+       .wrap5>div:nth-child(2){flex-grow: 2;} /* 600 * (2/(2+2+1)) = 240 */
+       .wrap5>div:nth-child(3){flex-grow: 1;} /* 600 * (1/(2+2+1)) = 120 */
+       
+    </style>
+</head>
+<body>
+    <!-- div.wrap$*4>div.box*3 -->
+    <div class="wrap1 wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="wrap2 wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="wrap3 wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="wrap4 wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="wrap5 wrap">
+        <div class="box">박스</div>
+        <div class="box">박스 박스</div>
+        <div class="box">박스</div>
+    </div>
+</body>
+</html>

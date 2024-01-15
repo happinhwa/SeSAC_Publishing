@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{width: 300px; height: 300px; background-color: #5fe2ac; margin: 20px;}
+        .box>div{width: 100px; height: 100px; background-color: #596847;}
+        #box1{margin: auto; position: relative;}
+        #box1>div:nth-child(2){position: absolute; left: 100px; top: 100px;}
+        #box1>div:nth-child(3){position: absolute; left: 200px; top: 200px;}
+        #box2{position: fixed; right: 0; bottom: 0;}
+        /* position을 썼을 때 문제! 겹치게 된다 == 레이어의 위,아래가 생김 -> 이걸 해결하기 위한 것 z-index */
+        #box2>div:nth-child(1){position: absolute; left: 50px; top: 50px; z-index: 1;}
+        #box2>div:nth-child(2){position: absolute; right: 0; bottom: 0;}
+        #box2>div:nth-child(3){position: absolute; left: 30px; top: 30px; background-color: bisque;}
+        #box3{position: fixed; left: 0; bottom: 0;}
+        #box3>div{position: absolute; left: 100px; top: 100px;}
+    </style>
+</head>
+<body>
+<div class="box" id="box1">
+    <div></div>
+    <div></div>
+    <div></div>
+</div> 
+<div class="box" id="box2">
+    <div></div>
+    <div></div>
+    <div></div>
+</div> 
+<div class="box" id="box3">
+    <div></div>
+</div> 
+<div class="box" id="box4">
+    <div></div>
+</div>
+</body>
+</html>
