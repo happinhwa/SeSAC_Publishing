@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        .wrap{background-color: #ffeff5; display: flex; flex-wrap: wrap;}
+        /* cursor: pointer; <a>태그 없이도 핸드커서로 보이게 함!! */
+        .wrap>div{width: 250px; height: 250px; border: 5px solid #ca89a2; margin: 10px; display: flex; cursor: pointer;}
+        .wrap>div>div{width: 100px; height: 100px; margin: auto; background-color: #ee82a2; display: flex; justify-content: center; align-items: center;} 
+        .box1:hover>div{transform: scale(1.5); transition-property: transform, background-color; transition-duration: 1s; background-color: yellowgreen; transition-delay: 1s, 0s;}
+        .box2>div{position: relative; left: 0; top: 0;}
+        .box2:hover>div{left: 50px; top: 50px; transition-property: left, top; transition-duration: 2s, 2s; transition-delay: 0s, 1s;}
+        .box3:hover>div{transform: rotate(45deg); transition: transform 1s 1s ease-in-out;}
+        .box4:hover>div{transform: skewX(-20deg);}
+        .box5:hover>div{transform: scale(150%) rotate(60deg);}
+        /* transform과 함께 쓰이는~~ transition!! figma에서 smart animate같은 거 ㅎㅎ */
+        .box6:hover>div{transform: scale(1.5);}
+        .box7:hover>div{transform: scale(1.5);}
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="box1"><div>text-box1</div></div>
+        <div class="box2"><div>text-box2</div></div>
+        <div class="box3"><div>text-box3</div></div>
+        <div class="box4"><div>text-box4</div></div>
+        <div class="box5"><div>text-box5</div></div>
+        <div class="box6"><div>text-box6</div></div>
+        <div class="box7"><div>text-box7</div></div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
